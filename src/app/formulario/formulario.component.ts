@@ -12,19 +12,59 @@ declare var require: any;
 
 export class FormularioComponent implements OnInit {
 
-  /**
-  * Método constructor
-  * @method Constructor
-  */
-  constructor(private fb: FormBuilder, private router: Router) {
+    /**
+     * @property {String} error - Mensaje de error que devuelve UserService al realizar la petición
+     */
+    error: String;
+    /**
+     * @property {FormGroup} form - Referencia al formulario del componente
+     */
+    form: FormGroup;
+    /**
+     * @property {string[]} sex - Lista de generos aceptados
+     */
+    sex: String[];
+    /**
+     * @property {boolean} lactactia_disabled - indicador de switch de lactancia deshabilitado
+     */
+    lactactia_disabled: boolean;
+
+    /**
+    * Método constructor
+    * @method Constructor
+    */
+    constructor(private fb: FormBuilder, private router: Router) {
+    }
+
+    /**
+      * Método que se ejecuta al iniciar la vista. realiza la carga inicial de datos
+      * @method ngOnInit
+    */
+    ngOnInit() {
+        this.sex = ["Masculino", "Femenino"]
+        this.form = new FormGroup({
+            'nombre': new FormControl(null, [
+                Validators.required
+            ]),
+            'apellido': new FormControl(null, [
+                Validators.required
+            ]),
+            'sexo': new FormControl(null, [
+                Validators.required
+            ]),
+            'lactancia': new FormControl(null, [
+                Validators.required
+            ]),
+            'nacimiento': new FormControl(null, [
+                Validators.required
+            ]),
+            'telefono': new FormControl(null, [
+                Validators.required,
+                Validators.pattern(/^[+]{0,1}[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*\$/)
+            ]),
+        });
+    }
+
+  onSubmitted() {
   }
-
-  /**
-    * Método que se ejecuta al iniciar la vista. realiza la carga inicial de datos
-    * @method ngOnInit
-  */
-  ngOnInit() {
-  }
-
-
 }

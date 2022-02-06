@@ -1,3 +1,46 @@
-<div fxLayout="row wrap">
-    <p>Prueba form</p>
+<div class="first-page">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <h1 class="center-label">Formulario de registro</h1>
+            <form role="form" [formGroup]="form" (keyup.enter)="onSubmitted()">
+                <div class="form-content">
+                    <div class="form-group">
+                        <input formControlName="nombre" type="text" class="form-control input-underline input-lg" placeholder="Nombre">
+                    </div>
+                    <div class="form-group">
+                        <input formControlName="apellido" type="text" class="form-control input-underline input-lg" placeholder="Apellido">
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Fecha de nacimiento</mat-label>
+                            <input matInput [matDatepicker]="picker" formControlName="nacimiento" disabled>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker disabled="false"></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <label id="sexo">Sexo</label>
+                        <mat-radio-group formControlName="sexo" aria-labelledby="sexo" class="radio-group">
+                            <mat-radio-button *ngFor="let genders of sex" class="radio-button" [value]="genders">
+                                {{genders}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+
+                    <div class="form-group">
+                        <mat-slide-toggle formControlName="lactancia" [disabled]="lactactia_disabled">Embarazada o en período de lactancia</mat-slide-toggle>
+                    </div>
+                    <div class="form-group">
+                        <input formControlName="telefono" type="text" class="form-control input-underline input-lg" placeholder="Teléfono">
+                    </div>
+
+                    <span *ngIf="error" style="color:red"> {{error}}</span>
+                </div>
+                <div class="center-label">
+                    <a class="btn rounded-btn" (click)="onSubmitted()">Registrar</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
+
