@@ -7,6 +7,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FullComponent } from './layouts/full/full.component';
@@ -25,6 +26,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     AppComponent,
     FullComponent,
     SpinnerComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

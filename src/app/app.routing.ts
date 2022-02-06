@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { FullComponent } from './layouts/full/full.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 export const AppRoutes: Routes = [
@@ -9,12 +10,16 @@ export const AppRoutes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/dashboard',
+        redirectTo: '/formulario',
         pathMatch: 'full'
       },
       {
+        path: 'formulario',
+        loadChildren: () => import('./formulario/formulario.module').then(m => m.FormularioModule)
+      },
+      {
         path: 'dashboard',
-        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+        component: DashboardComponent
       },
     ]
   }

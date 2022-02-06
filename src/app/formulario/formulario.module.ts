@@ -3,10 +3,9 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DemoMaterialModule } from '../demo-material-module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { DashboardComponent } from './dashboard.component';
-import { DashboardRoutes } from './dashboard.routing';
+import { FormularioComponent } from './formulario.component';
+import { FormularioRoutes } from './formulario.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
@@ -16,10 +15,10 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forChild(DashboardRoutes),
+    RouterModule.forChild(FormularioRoutes),
     NgMultiSelectDropDownModule.forRoot()
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  declarations: [DashboardComponent]
+  declarations: [FormularioComponent]
 })
-export class DashboardModule {}
+export class FormularioModule {}

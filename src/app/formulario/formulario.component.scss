@@ -1,0 +1,143 @@
+.position-relative {
+	position: relative;
+}
+
+.add-contact {
+	position: absolute;
+	right: 17px;
+	top: 57px;
+}
+
+.image-size{
+	margin-right:10px;
+	width:70px;
+}
+
+.title{
+	font-size: 16px;
+}
+
+.subtitle{
+	font-size: 12px;
+	margin-bottom: 0;
+	text-align: justify;
+	line-height: 16px;
+}
+
+.division{
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.pic{
+	min-width: 20%;
+}
+
+.main{
+	width: 60%;
+}
+
+.extra{
+	min-width: 10%;
+}
+
+mat-checkbox{
+	margin-left: 15px;
+}
+
+.icon-color{
+	color: #607D89;
+}
+
+.states{
+	padding-top: 15px;
+}
+
+.distance-width{
+	min-width: 20%;
+}
+
+.mat-card{
+	cursor: pointer;
+	margin-left: 0 !important;
+}
+
+::ng-deep .mat-expansion-panel-body{
+     padding: 0 20px 5px 0 !important;
+}
+
+.between{
+	display: flex;
+	justify-content: space-between;
+}
+
+.nameorder{
+	display: flex;
+	justify-content: space-between;
+}
+
+.orderby{
+	margin-left: 10px;
+}
+
+.quicklinks{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.pagination{
+	margin-top: 30px;
+	width: 100%;
+}
+
+.parametersPanel{
+	width: 100%;
+}
+
+.leftm{
+	margin-left:10px;
+}
+
+.overflow{
+	overflow:visible;
+}
+
+.card{
+	padding: 10px;
+}
+
+.distance{
+	font-size: 12px;
+}
+
+@media (max-width: 500px){
+	.main{
+		min-width: 50%;
+		width: 100%;
+	}
+	.nameorder{
+		display: inline;
+	}
+	.orderby{
+		margin-top: -22px;
+	}
+	.image-size{
+		width: 25px;
+	}
+	.title{
+		font-size: 12px;
+		font-weight: normal;
+		line-height: 16px;
+	}
+	.pic{
+		min-width: 10%;
+	}
+	.distance{
+		font-size: 10px;
+	}
+	.subtitle{
+		font-size: 10px;
+		line-height: 16px;
+		text-align: justify;
+	}
+}
