@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
 
     /**
      * @property {User} user - Instancia del modelo usuario
@@ -18,14 +19,14 @@ export class DashboardComponent implements OnInit {
       * Método constructor
       * @method Constructor
       */
-    constructor(private router: Router) {
-        const json: any = this.router.getCurrentNavigation().extras.state;
-        this.user = new User(json);
-        console.log("r", this.user)
-        console.log("fr", json)
-    }
-
-    ngOnInit() {
+    constructor(private router: Router, private location: Location) {
+        const navigation = this.router.getCurrentNavigation();
+        if(navigation) {
+            const json = navigation.extras.state;
+            this.user = new User(json);
+        } else {
+            this.location.back();
+        }
     }
 
 }
