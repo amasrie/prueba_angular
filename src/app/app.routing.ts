@@ -21,6 +21,10 @@ export const AppRoutes: Routes = [
         path: 'dashboard',
         component: DashboardComponent
       },
+      { 
+        path: '**', 
+        redirectTo: '/formulario'
+      },
     ]
   }
 ];

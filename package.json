@@ -30,6 +30,7 @@
     "jquery": "^3.5.1",
     "leaflet": "^1.6.0",
     "leaflet-easybutton": "^2.4.0",
+    "moment": "^2.29.1",
     "ng-chartist": "4.1.0",
     "ng-multiselect-dropdown": "^0.2.10",
     "ngx-ui-loader": "^9.1.1",
