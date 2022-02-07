@@ -1,6 +1,6 @@
 import { Component, OnInit, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import * as moment from 'moment';
 
 @Component({
@@ -41,16 +41,16 @@ export class FormularioComponent implements OnInit {
     maxDate: Date;
 
     /**
-    * Método constructor
-    * @method Constructor
-    */
+      * Método constructor
+      * @method Constructor
+      */
     constructor(private fb: FormBuilder, private router: Router) {
     }
 
     /**
       * Método que se ejecuta al iniciar la vista. realiza la carga inicial de datos
       * @method ngOnInit
-    */
+      */
     ngOnInit() {
         this.maxDate = moment().subtract(1, 'days').toDate();
         this.minDate = moment().subtract(200, 'years').toDate();
@@ -89,7 +89,7 @@ export class FormularioComponent implements OnInit {
     /**
       * Método que se ejecuta al detectar cambios en los radio button
       * @method onRadioChange
-    */
+      */
     onRadioChange(event: any) {
         this.lactancy_disabled = event.value != 2;
         this.lactancy_checked = this.lactancy_disabled ? false : this.lactancy_checked;
@@ -98,7 +98,7 @@ export class FormularioComponent implements OnInit {
     /**
       * Método que se ejecuta al detectar cambios en el switch de lactancia
       * @method onSlideChange
-    */
+      */
     onSlideChange(event: any) {
         this.lactancy_checked = event.checked;
     }
@@ -106,18 +106,18 @@ export class FormularioComponent implements OnInit {
     /**
       * Método que verifica los datos y muestra un error o llama a la vista de bienvenida
       * @method onSubmitted
-    */
+      */
     onSubmitted() {
         this.error = "";
         const json = {};
-        if(!this.form.valid) {
-            Object.keys(this.form.controls).forEach(field => {
-                const control = this.form.get(field);
-               this.error += control.errors ? `Verifique el campo ${field}\n` : "";
-                json[field] = control.value;
-            });
-        } else{
-            this.router.navigate(["dashboard"]);
+        Object.keys(this.form.controls).forEach(field => {
+            const control = this.form.get(field);
+            this.error += control.errors ? `Verifique el campo ${field}\n` : "";
+            json[field] = control.value;
+        });
+        if(this.form.valid) {
+            const navigationExtras: NavigationExtras = {state: json};
+            this.router.navigate(["dashboard"], navigationExtras);
         }
     }
 }
